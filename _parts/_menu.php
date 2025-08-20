@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg stick-top" style="background-color:rgb(63, 6, 109);">
+<nav class="navbar navbar-expand-lg stick-top bg-body-dark">
     <div class="container">
         <img src="" alt="Logo">
         <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -14,7 +14,7 @@
                     <a href="racas.php" class="nav-link">Raça</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">Animal</a>
+                    <a href="animais.php" class="nav-link">Animal</a>
                 </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link">Categoria</a>

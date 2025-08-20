@@ -17,6 +17,9 @@
         <div class="mt-3">
             <h3>Animais</h3>
         </div>
+        <div>
+            <a href="gerAnimal.php" class="btn btn-success mt-3 mb-3">Novo Animal</a>
+        </div>
         <table class="table table-success table-striped">
             <thead>
                 <tr>
@@ -37,7 +40,7 @@
             #Criando o objeto Animal
             $anm = new Animal();
             #trazendo os animais cadastrados no banco de dados
-            $animais = $anm->all();
+            $animais = $anm->sp_exibir("exibir_animal()");
             ?>
             <tbody>
                 <?php
@@ -46,12 +49,20 @@
                     <tr>
                         <td class="text-center"><?php echo $animal->id_animal; ?></td>
                         <td><?php echo $animal->identificador; ?></td>
-                        <td><?php echo $animal->data_nascimento; ?> </td>
+                        <td><?php echo $animal->nascimento; ?> </td>
                         <td><?php echo $animal->sexo; ?></td>
-                        <td><?php echo $animal->id_raca; ?></td>
-                        <td><?php echo $animal->id_mae; ?></td>
-                        <td><?php echo $animal->id_lote; ?></td>
-                        <td></td>
+                        <td><?php echo $animal->nome; ?></td>
+                        <td><?php echo $animal->Mãe; ?></td>
+                        <td><?php echo $animal->descricao; ?></td>
+                        <td>
+                            <form action="gerAnimal.php" method="post">
+                                <input type="hidden" name="idAnimal" value="<?php echo $animal->id_animal; ?>">
+                                <button type="submit" name="btnEditar" class="btn btn-primary">
+                                    <i class="bi bi-pencil-square"></i>
+                                </button>
+                            </form>
+
+                        </td>
                     </tr>
                 <?php endforeach; ?>
 

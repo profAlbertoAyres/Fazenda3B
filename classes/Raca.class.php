@@ -21,7 +21,7 @@ class Raca extends CRUD{
         return $this->nome;
     }
     public function add() {
-        $sql = "INSERT INTO $this->table (nome,datanascimento,cpf,apelido) VALUES (:nome,:datanscimento.:cpf,:apelido)";
+        $sql = "INSERT INTO $this->table (nome) VALUES (:nome)";
         $stmt = $this->db->prepare($sql);
         $stmt->bindParam(":nome", $this->nome, PDO::PARAM_STR);
         return $stmt->execute();
