@@ -36,7 +36,7 @@
             </div>
             <div class="col-md-3 mt-3">
                 <label for="nascimento" class="form-label">Nascimento</label>
-                <input type="date" name="nascimento" id="nascimento" class="form-control">
+                <input type="date" name="nascimento" id="nascimento" class="form-control" value="<?php echo $edtAnimal->data_nascimento ?? null; ?>">
             </div>
             <div class="col-md-3 mt-3">
                 <label for="sexo" class="form-label">Sexo</label>
@@ -47,10 +47,10 @@
                             "F" => "Fêmea",
                             "M" => "Macho",
                         ];
-
+                        $sexoSelecionado = $edtAnimal->sexo ?? null;
                         foreach($sexos as $valor => $rotulo):
                     ?>
-                    <option value="<?php echo $valor ?>"><?php echo $rotulo ?></option>
+                    <option value="<?php echo $valor ?>" <?php if($sexoSelecionado == $valor) echo 'selected'; ?>><?php echo $rotulo ?></option>
 
                     <?php endforeach; ?>
                 </select>
@@ -62,14 +62,11 @@
 
                     <?php
                         $racas = $raca->all();
-
+                        $racaSelecionada = $edtAnimal->id_raca ?? null;
                         foreach($racas as $r):
                     ?>
-                    <option value="<?php echo $r->id_raca ?>"><?php echo $r->nome ?></option>
-
+                    <option value="<?php echo $r->id_raca ?>" <?php if($racaSelecionada==$r->id_raca) echo 'selected' ;?>><?php echo $r->nome ?></option>
                     <?php endforeach; ?>
-
-
                 </select>
             </div>
             <div class="col-md-4 mt-3">
@@ -78,11 +75,10 @@
                     <option selected>Selecione o Lote</option>
                     <?php
                         $lotes = $lote->all();
-
+                        $loteSelecionado = $edtAnimal->id_lote ?? null;
                         foreach($lotes as $l):
                     ?>
-                    <option value="<?php echo $l->id_lote ?>"><?php echo $l->descricao ?></option>
-
+                    <option value="<?php echo $l->id_lote ?>" <?php if($loteSelecionado==$l->id_lote) echo 'selected'; ?>><?php echo $l->descricao ?></option>
                     <?php endforeach; ?>
                 </select>
             </div>
@@ -92,10 +88,10 @@
                     <option selected>Selecione a Mãe</option>
                     <?php
                         $maes = $mae->sp_exibir('exibir_maes()');
-
+                        $maeSelecionada = $edtAnimal->id_mae ?? null;
                         foreach($maes as $m):
                     ?>
-                    <option value="<?php echo $m->id_animal ?>"><?php echo $m->identificador ?></option>
+                    <option value="<?php echo $m->id_animal ?>" <?php if($maeSelecionada==$m->id_animal) echo 'selected'; ?>><?php echo $m->identificador ?></option>
 
                     <?php endforeach; ?>
                 </select>

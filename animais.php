@@ -38,9 +38,9 @@
                 require_once "classes/{$class}.class.php";
             });
             #Criando o objeto Animal
-            $anm = new Animal();
+            $o_animal = new Animal();
             #trazendo os animais cadastrados no banco de dados
-            $animais = $anm->sp_exibir("exibir_animal()");
+            $animais = $o_animal->sp_exibir('exibir_animal()');
             ?>
             <tbody>
                 <?php
@@ -54,11 +54,19 @@
                         <td><?php echo $animal->nome; ?></td>
                         <td><?php echo $animal->Mãe; ?></td>
                         <td><?php echo $animal->descricao; ?></td>
-                        <td>
+                        <td class="d-flex gap-1">
+                            <!-- botão Editar -->
                             <form action="gerAnimal.php" method="post">
                                 <input type="hidden" name="idAnimal" value="<?php echo $animal->id_animal; ?>">
                                 <button type="submit" name="btnEditar" class="btn btn-primary">
                                     <i class="bi bi-pencil-square"></i>
+                                </button>
+                            </form>
+                            <!-- Botão Excluir -->
+                            <form action="dbAnimal.php" method="post">
+                                <input type="hidden" name="idAnimal" value="<?php echo $animal->id_animal; ?>">
+                                <button type="submit" name="btnDeletar" class="btn btn-danger">
+                                    <i class="bi bi-trash"></i>
                                 </button>
                             </form>
 

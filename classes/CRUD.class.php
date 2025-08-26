@@ -41,8 +41,8 @@ abstract class CRUD{
         }
     }
 
-    public function sp_exibir(string $store_procedure){
-        $sql = "call $store_procedure";
+    public function sp_exibir(string $procedure){
+        $sql = "call {$procedure}";
         $stmt = $this->db->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_OBJ);
