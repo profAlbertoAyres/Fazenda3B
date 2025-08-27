@@ -22,10 +22,28 @@ if (filter_has_var(INPUT_POST, "btnGravar")):
             </script>
             ";
         }else{
-            
+            echo "
+            <script>
+                window.alert('Erro ao adicionar o Animal');
+                window.open(document.referrer,'_self');
+            </script>
+            ";
+        }
+    else:
+        if ($animal->update('id_animal', $idAnimal)) {
+            echo "
+            <script>
+                window.alert('Animal atualizado com sucesso');
+                window.location='animais.php';
+            </script>
+            ";
+        }else{
+            echo "
+            <script>
+                window.alert('Erro ao atualizar o Animal');
+                window.open(document.referrer,'_self');
+            </script>
+            ";
         }
     endif;
-
-
-
 endif;

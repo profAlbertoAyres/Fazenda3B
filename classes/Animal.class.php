@@ -55,7 +55,7 @@ class Animal extends CRUD{
         $this->idRaca = $idRaca;
     }
     public function setIdMae($idMae){
-        $this->idMae = $idMae;
+        $this->idMae = !empty($idMae) ? (int) $idMae : null;
     }
     public function setIdLote($idLote){
         $this->idLote = $idLote;

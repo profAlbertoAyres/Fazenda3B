@@ -85,7 +85,7 @@
             <div class="col-md-4 mt-3">
                 <label for="mae" class="form-label">Mãe</label>
                 <select name="mae" id="mae" class="form-select">
-                    <option selected>Selecione a Mãe</option>
+                    <option value="" selected>Selecione a Mãe</option>
                     <?php
                         $maes = $mae->sp_exibir('exibir_maes()');
                         $maeSelecionada = $edtAnimal->id_mae ?? null;
