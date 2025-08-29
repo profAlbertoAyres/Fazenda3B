@@ -1,11 +1,11 @@
 <?php
 
-if (filter_has_var(INPUT_POST, "btnGravar")):
-    spl_autoload_register(function ($class) {
-        require_once "classes/{$class}.class.php";
-    });
+spl_autoload_register(function ($class) {
+    require_once "classes/{$class}.class.php";
+});
 
-    $animal = new Animal();
+$animal = new Animal();
+if (filter_has_var(INPUT_POST, "btnGravar")):
     $animal->setIdentificador(filter_input(INPUT_POST, 'identificador'));
     $animal->setDataNascimento(filter_input(INPUT_POST, 'nascimento'));
     $animal->setSexo(filter_input(INPUT_POST, 'sexo'));
@@ -46,4 +46,17 @@ if (filter_has_var(INPUT_POST, "btnGravar")):
             ";
         }
     endif;
+elseif(filter_has_var(INPUT_POST, 'btnDeletar')):
+    $idAnimal = intval(filter_input(INPUT_POST,'idAnimal'));
+    if($animal->delete('id_animal',$idAnimal)){
+        header("Location:animais.php");
+    }else{
+        echo "
+            <script>
+                window.alert('Erro ao excluir o animal');
+                window.location='animais.php';
+            </script>
+            ";
+    }
+
 endif;
