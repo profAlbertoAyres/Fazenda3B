@@ -28,6 +28,37 @@
                 <li class="nav-item">
                     <a href="#" class="nav-link">Manejo</a>
                 </li>
+                <li class="nav-item">
+                    <a href="usuarios.php" class="nav-link">Usuários</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav">
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" id="userDropdown" role="button" aria-expanded="false"
+                        data-bs-toggle="dropdown">
+
+                        <?php
+                        if (session_status() === PHP_SESSION_NONE) {
+                            session_start();
+                        }
+                        echo $_SESSION['user_name'];
+                        ?>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                        <li>
+                            <a href="dashboard.php" class="dropdown-item">Painel de Controle</a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li>
+                            <a href="alterar_senha.php" class="dropdown-item">Alterar senha</a>
+                        </li>
+                        <li>
+                            <a href="alterar_email.php" class="dropdown-item">Alterar E-mail</a>
+                        </li>
+                    </ul>
+                </li>
             </ul>
         </div>
     </div>

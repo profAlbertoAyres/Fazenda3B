@@ -126,7 +126,7 @@ class Usuario extends CRUD
             $usuario = $stmt->fetch(PDO::FETCH_OBJ);
             if(password_verify($this->senha,$usuario->senha)){
                 $_SESSION['user_id']=$usuario->id_usuario;
-                $_SESSION['nome']=$usuario->nome;
+                $_SESSION['user_name']=$usuario->nome;
                 header("Location:dashboard.php");
                 exit();
             }
