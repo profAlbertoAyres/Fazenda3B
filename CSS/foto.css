@@ -1,0 +1,22 @@
+.card{
+    flex: 0 0 calc(100% / 3 - 1rem);
+}
+
+.card img{
+    width: 100%;
+}
+
+
+@media(max-width: 991px){
+    .card{
+        flex: 0 0 calc(100% / 2 - 1rem);
+    }
+    
+}
+
+@media(max-width: 776px){
+    .card{
+        flex: 0 0 100%;
+    }
+    
+}

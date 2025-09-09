@@ -19,6 +19,7 @@ if (filter_has_var(INPUT_GET, "idAnimal")) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="CSS/baseAdmin.css">
+    <link rel="stylesheet" href="CSS/foto.css">
     <title>Fotos do animal: <?php echo $animal->identificador ?></title>
 </head>
 
@@ -45,25 +46,25 @@ if (filter_has_var(INPUT_GET, "idAnimal")) {
                 ?>
 
                 <div class="card">
-                    <img src="..." class="card-img-top" alt="...">
+                    <img src="uploads/<?= $foto->nome ?>" class="card-img-top" alt="<?= $foto->alternativo ?>">
                     <div class="card-body">
 
-                        <p class="card-text">Legenda</p>
-                        <p>
-                        <form action="" method="post">
-                            <input type="hidden" name="idFoto" value="">
-                            <button type="submit" name="btnEditar" class="btn btn-primary btn-sm">
-                                <i class="bi bi-pencil-square"></i>
-                            </button>
-                        </form>
-                        <form action="" method="post" class="d-flex">
-                            <input type="hidden" name="idFoto" value="">
-                            <button name="btnDeletar" class="btn btn-danger btn-sm" type="submit"
-                                onclick="return confirm('Tem certeza que deseja deletar a Foto?');">
-                                <i class="bi bi-trash"></i>
-                            </button>
-                        </form>
-                        </p>
+                        <p class="card-text"><?= $foto->legenda ?></p>
+                        <div class="d-flex justify-content-center gap-1">
+                            <form action="" method="post">
+                                <input type="hidden" name="idFoto" value="">
+                                <button type="submit" name="btnEditar" class="btn btn-primary btn-sm">
+                                    <i class="bi bi-pencil-square"></i>
+                                </button>
+                            </form>
+                            <form action="" method="post" class="d-flex">
+                                <input type="hidden" name="idFoto" value="">
+                                <button name="btnDeletar" class="btn btn-danger btn-sm" type="submit"
+                                    onclick="return confirm('Tem certeza que deseja deletar a Foto?');">
+                                    <i class="bi bi-trash"></i>
+                                </button>
+                            </form>
+                        </div>
                     </div>
                 </div>
             <?php endforeach ?>

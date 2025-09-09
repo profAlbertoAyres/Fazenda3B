@@ -26,7 +26,7 @@ if (filter_has_var(INPUT_POST, "btnGravar")):
                 }
             else:
             endif;
-            echo "<script>window.alert('$mensagem'); window.location.href='fotoAnimal.php?idAnimal.php=$idAnimal';</script>";
+            echo "<script>window.alert('$mensagem'); window.location.href='fotoAnimal.php?idAnimal=$idAnimal';</script>";
             $foto->confirmarTransacao();
         } catch (\Throwable $th) {
             $imgFile->deletar($nomeArquivo);
