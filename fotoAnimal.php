@@ -51,8 +51,8 @@ if (filter_has_var(INPUT_GET, "idAnimal")) {
 
                         <p class="card-text"><?= $foto->legenda ?></p>
                         <div class="d-flex justify-content-center gap-1">
-                            <form action="" method="post">
-                                <input type="hidden" name="idFoto" value="">
+                            <form action="gerFotoAnimal.php" method="post">
+                                <input type="hidden" name="idFoto" value="<?= $foto->id_foto; ?>">
                                 <button type="submit" name="btnEditar" class="btn btn-primary btn-sm">
                                     <i class="bi bi-pencil-square"></i>
                                 </button>

@@ -10,13 +10,20 @@ $imgFile = new Imagem(prefixo: "anim_");
 if (filter_has_var(INPUT_POST, "btnGravar")):
         $foto->iniciarTransacao();
         try {
-            $nomeArquivo = $imgFile->upload($_FILES['foto']);
+            $idFoto = filter_input(INPUT_POST, 'idFoto');
             $idAnimal = filter_input(INPUT_POST, 'idAnimal');
+            $fotoAntiga = filter_input(INPUT_POST, 'fotoAntiga');
             $foto->setAnimal($idAnimal);
-            $foto->setNome($nomeArquivo);
+            $foto->setNome($fotoAntiga);
+            if(!empty($_FILES['foto']['name'])){
+                $nomeArquivo = $imgFile->upload($_FILES['foto']);
+                $foto->setNome($nomeArquivo);
+                if(!empty($fotoAntiga)){
+                    $imgFile->deletar($fotoAntiga);
+                }
+            }
             $foto->setAlternativo(filter_input(INPUT_POST, 'textoAlt'));
             $foto->setLegenda(filter_input(INPUT_POST, 'legenda'));
-            $idFoto = filter_input(INPUT_POST, 'idFoto');
 
             if(empty($idFoto)):
                 if($foto->add()){
@@ -25,6 +32,9 @@ if (filter_has_var(INPUT_POST, "btnGravar")):
                     $mensagem = 'Erro ao adicionar foto';
                 }
             else:
+                if($foto->update('id_foto',$idFoto)){
+                    $mensagem = 'Foto atualizada com sucesso.';
+                }
             endif;
             echo "<script>window.alert('$mensagem'); window.location.href='fotoAnimal.php?idAnimal=$idAnimal';</script>";
             $foto->confirmarTransacao();

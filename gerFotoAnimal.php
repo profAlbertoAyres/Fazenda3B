@@ -23,7 +23,10 @@
         });
         $idAnimal = null;
         if (filter_has_var(INPUT_POST, 'btnEditar')):
-            // vamos fazer depois
+            $f = new FotoAnimal();
+            $idFoto = intval(filter_input(INPUT_POST,'idFoto'));
+            $foto = $f->search('id_foto',$idFoto);
+            $idAnimal = $foto->fk_animal;
         elseif (filter_has_var(INPUT_GET, 'idAnimal')):
             $idAnimal = filter_input(INPUT_GET,'idAnimal');
         endif;
@@ -31,19 +34,19 @@
         <form method="post" action="dbFotoAnimal.php" class="row g-3 mt-3" enctype="multipart/form-data">
             <input type="hidden" name="idAnimal" value="<?php echo $idAnimal ?? null; ?>">
             <input type="hidden" name="idFoto" value="<?php echo $foto->id_foto ?? null; ?>">
+            <input type="hidden" name="fotoAntiga" value="<?php echo $foto->nome ?? null; ?>">
             <div class="col-md-6 mt-3">
                 <label for="legenda" class="form-label">Legenda</label>
-                <input type="text" name="legenda" id="legenda" placehoader="Digite a legenda da foto" required
-                    class="form-control" value="">
+                <input type="text" name="legenda" id="legenda" placehoader="Digite a legenda da foto" required class="form-control" value="<?php echo $foto->legenda ?? null; ?>">
             </div>
             <div class="col-md-6 mt-3">
                 <label for="textoAlt" class="form-label">Texto alternativo</label>
                 <input type="text" name="textoAlt" id="textoAlt" placehoader="Digite o texto alternativo da foto"
-                    required class="form-control" value="">
+                    required class="form-control" value="<?php echo $foto->alternativo ?? null; ?>">
             </div>
             <div class="col-12 mt-3">
                 <label for="foto" class="form-label">Foto</label>
-                <input type="file" name="foto" id="foto" class="form-control" accept=".png, .jpg, .jpeg" required>
+                <input type="file" name="foto" id="foto" class="form-control" accept=".png, .jpg, .jpeg" <?php echo empty($foto->id_foto) ? 'required' : null ?>>
             </div>
             <div class="col-12 mt-3">
                 <button type="submit" name="btnGravar" class="btn btn-success">Gravar</button>
