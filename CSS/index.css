@@ -1,62 +1,67 @@
-.dest {
-    height: 300px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-image: url("../Images/banner.png");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    font-size: 24px;
-    font-weight: bold;
-    text-shadow: 1px 1px 0 #fff, 2px 2px 4px #f00;
+.card {
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
 }
 
-section{
-    margin: 20px 0;
-    padding: 20px;
-    border-radius: 12px;
-    /* background: linear-gradient(to right,#5fc2cf,#70aaef,#ddd); */
-    /* background: radial-gradient(circle,#5fc2cf,#70aaef); */
-    /* background: conic-gradient(#344857,#547853,#514861); */
-    background-color: #eee;
+.card:hover {
+  transform: translateY(-5px);
 }
 
-section h2{
-    text-align: center;
-    font-family: var(--font-secundaria);
-    margin: 20px ;
-    border-bottom: 1px solid #2c3e50;
-    padding: 10px;
+.card {
+  flex: 0 0 calc(100% / 3 - 1rem);
+}
+
+.div-carousel {
+  width: 100%;
+  overflow: hidden;
+}
+
+.div-carousel .card{
+    margin: 10px 3px;
 }
 
 
-section .msn{
-    display: flex;
-    gap: 20px;
-    align-items: center;
+.list-card {
+  display: flex;
+  gap: 1rem;
+  position: relative;
+  justify-content: flex-start;
+
 }
 
-section .msn img{
-    width: 40%;
+.card-text {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;   
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
+.text-justify{
+  text-align: justify;
+}
 
+#animais img {
+  height: 200px;      /* defina a altura fixa que quiser */
+  width: 100%;        /* ocupa toda a largura */
+  object-fit: contain;  /* corta as bordas se necessário */
+}
 
-@media screen and (max-width: 600px) {
-    main{
-        width: 100%;
-    }
-    section .msn{
-        flex-direction: column;
-    }
-    .dest{
-        text-align: center;
-        padding: 15px;
-        height: auto;
-    }
-    section .msn img{
-        width: 100%;
-    }
-    
+section {
+  scroll-margin-top: 80px;
+}
+
+/* Tablet: 2 cards */
+@media (max-width: 991px) {
+  .card {
+    flex: 0 0 calc(100% / 2 - 1rem);
+  }
+}
+
+/* Celular: 1 card */
+@media (max-width: 767px) {
+  .card {
+    flex: 0 0 100%;
+  }
 }
