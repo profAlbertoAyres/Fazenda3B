@@ -63,12 +63,12 @@
                 <img src="uploads/semFoto.png" alt="Animal sem foto" class="semFotoC">
                 <?php endif; ?>
                 <div class="card-body">
-                    <h5 class="card-title"><?= $anm->identificdor?></h5>
+                    <h5 class="card-title"><?= $anm->identificador?></h5>
                 </div>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">Nascimento: <?= $anm->nascimento ?></li>
                     <li class="list-group-item"><?= $anm->sexo ?></li>
-                    <li class="list-group-item"><?= $anm->lote?></li>
+                    <li class="list-group-item"><?= $anm->descricao?></li>
                 </ul>
                 <div class="card-body">
                     <!-- Button trigger modal -->
@@ -88,14 +88,14 @@
             <div class="modal-dialog modal-dialog-scrollable">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="animalModalLabel-<?=$anm->id_animal ?>">Animal: <?=$anm->identificdor ?></h1>
+                        <h1 class="modal-title fs-5" id="animalModalLabel-<?=$anm->id_animal ?>">Animal: <?=$anm->identificador ?></h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         <p>Sexo: <?=$anm->sexo ?></p>
                         <p class="text-justify">Nascimento: <?=$anm->nascimento ?></p>
-                        <p class="text-justify">Raça: <?=$anm->raca ?></p>
-                        <p class="text-justify">Lote: <?=$anm->lote ?></p>
+                        <p class="text-justify">Raça: <?=$anm->nome ?></p>
+                        <p class="text-justify">Lote: <?=$anm->descricao ?></p>
 
                     </div>
                 </div>
