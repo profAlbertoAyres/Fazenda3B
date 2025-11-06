@@ -1,5 +1,5 @@
 <?php
-    require_once "verifica_usuario.php";
+
 ?>
 
 <!DOCTYPE html>
@@ -9,6 +9,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.3.4/css/dataTables.bootstrap5.min.css">
     <link rel="stylesheet" href="CSS/baseAdmin.css">
     <title>Raças</title>
 </head>
@@ -24,7 +25,7 @@
         <div class="mt-3 mb-3">
             <a href="gerRaca.php" class="btn btn-outline-success">Nova raça</a>
         </div>
-        <table class="table">
+        <table class="table dataTable">
             <thead class="table-secondary">
                 <tr>
                     <th scope="col" class="text-center">#</th>
@@ -59,7 +60,7 @@
                                         class="bi bi-trash"></i>
                                 </button>
                             </form>
-                            
+
                         </td>
                     </tr>
                 <?php endforeach; ?>
@@ -71,7 +72,23 @@
     <footer>
         <?php require_once "_parts/_footer.php"; ?>
     </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+<script src="https://cdn.datatables.net/2.3.4/js/dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/2.3.4/js/dataTables.bootstrap5.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('.dataTable').DataTable({
+            language: {
+                url: '//cdn.datatables.net/plug-ins/2.3.4/i18n/pt-BR.json',
+            },
+            responsive: true,
+            pageLength: 15,
+            lengthMenu:[5,10,15,25,50,100],
+        });
+    })
+</script>
 
 </html>
