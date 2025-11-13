@@ -9,7 +9,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.datatables.net/2.3.4/css/dataTables.bootstrap5.min.css">
     <link rel="stylesheet" href="CSS/baseAdmin.css">
     <title>Raças</title>
 </head>
@@ -73,22 +72,5 @@
         <?php require_once "_parts/_footer.php"; ?>
     </footer>
 </body>
-
-<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-
-<script src="https://cdn.datatables.net/2.3.4/js/dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/2.3.4/js/dataTables.bootstrap5.min.js"></script>
-<script>
-    $(document).ready(function () {
-        $('.dataTable').DataTable({
-            language: {
-                url: '//cdn.datatables.net/plug-ins/2.3.4/i18n/pt-BR.json',
-            },
-            responsive: true,
-            pageLength: 15,
-            lengthMenu:[5,10,15,25,50,100],
-        });
-    })
-</script>
 
 </html>

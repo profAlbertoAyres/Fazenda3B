@@ -1,8 +1,28 @@
 @import url('base.css');
 
 :root{
-    --cor-menu: #2d572c !important;
+    --cor-menu: #2d572c;
     --cor-fonte-menu: #fff !important;
+}
+
+header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: var(--cor-texto-claro);
+    background-color: var(--cor-principal);
+    padding: 10px;
+}
+
+
+header img {
+    width: 150px;
+}
+
+header .empresa {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
 }
 
 .nav-custom {
@@ -65,6 +85,10 @@ main {
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+
+.text-justify{
+  text-align: justify;
+}
 .carousel-inner img, .semFotoC {
   height: 200px;            /* altura fixa do carrossel */
   width: auto;              /* largura automática (mantém proporção) */
@@ -84,10 +108,26 @@ section {
   scroll-margin-top: 80px;
 }
 
-
-
+/* Tablet: 2 cards */
 @media screen and (max-width: 992px) {
     header {
         flex-direction: column;
     }
+    .card {
+        flex: 0 0 calc(100% / 2 - 1rem);
+    }
+}
+
+/* Celular: 1 card */
+@media (max-width: 767px) {
+  
+  .input-pesquisa{
+    width: 100% !important;
+  }
+  .card {
+    flex: 0 0 100%;
+  }
+    .carousel-inner img, .semFotoC {
+    height: 150px;
+  }
 }

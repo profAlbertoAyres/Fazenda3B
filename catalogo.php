@@ -15,6 +15,10 @@
     ?>
     <main class="container mt-5">
         <h2 class="text-center mb-5">Nossos Animais</h2>
+        <div class="input-group mb-3 mt-3 w-50 mx-auto input-pesquisa">
+            <span class="input-group-text" id="label-input">🕵</span>
+            <input type="text" class="form-control" placeholder="Pesquise por Identificador, raça, sexo ou qualquer campo" aria-label="Pesquisar" aria-describedby="label-input" title="Digite sua pesquisa" id="pesquisaInput">
+        </div>
         <div class="d-flex gap-4 justify-content-center flex-wrap">
             <?php
             spl_autoload_register(function ($class) {
@@ -25,7 +29,7 @@
             $animais = $animal->sp_exibir('exibir_animais()');
             foreach ($animais as $anm):#Inicia o laço
                 ?>
-                <div class="card">
+                <div class="card card-pesq">
                     <!-- Imagens -->
                     <?php
                     $fotos = $foto->fotosAnimal($anm->id_animal);
@@ -60,12 +64,12 @@
                     <?php endif; ?>
 
                     <div class="card-body">
-                        <h5 class="card-title"><?= $anm->identificador ?></h5>
+                        <h5 class="card-title"><strong><?= $anm->identificador ?></strong></h5>
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Nascimento: <?= $anm->nascimento ?></li>
-                        <li class="list-group-item">Sexo: <?= $anm->sexo ?></li>
-                        <li class="list-group-item">Raça: <?= $anm->nome ?></li>
+                        <li class="list-group-item">Nascimento: <strong><?= $anm->nascimento ?></strong></li>
+                        <li class="list-group-item">Sexo: <strong><?= $anm->sexo ?></strong></li>
+                        <li class="list-group-item">Raça: <strong><?= $anm->nome ?></strong></li>
                     </ul>
                     <div class="card-body">
                         <!-- Button trigger modal -->
@@ -87,7 +91,8 @@
                     <div class="modal-content">
                         <div class="modal-header">
                             <h1 class="modal-title fs-5" id="animalModalLabel-<?= $anm->id_animal ?>">Animal:
-                                <?= $anm->identificador ?></h1>
+                                <?= $anm->identificador ?>
+                            </h1>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
@@ -103,6 +108,8 @@
 
     </main>
     <?php require_once "_parts/_footer.php" ?>
+
+    <script src="JS/pesquisaCads.js"></script>
 
 </body>
 
