@@ -743,3 +743,15 @@ ________________________________________
 Coordenação do Eixo 5 – Governança
 Projeto Cidades Inteligentes (Procint)
 Instituto Federal de Rondônia – IFRO
+
+
+| Norma | Aplicação |
+| --- | --- |
+| Constituição Federal/1988, art. 37 | Princípios da Administração Pública (legalidade, eficiência, publicidade) |
+| Lei nº 14.129/2021 | Governo Digital e eficiência pública |
+| Lei nº 13.709/2018 (LGPD) | Proteção de dados pessoais |
+| Lei nº 14.133/2021 | Nova Lei de Licitações e Contratos – contratações de TIC |
+| Decreto nº 10.332/2020 | Estratégia de Governo Digital (referência metodológica) |
+| IN SGD/ME nº 01/2019 | Contratações de soluções de TIC (referência) |
+| Guia de PDTIC do SISP | Metodologia de referência para elaboração do Plano |
+| Lei Orgânica Municipal e legislação local | Adequação ao contexto do Município |
