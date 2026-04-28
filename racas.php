@@ -9,6 +9,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- datatable link css -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.3.4/css/dataTables.bootstrap5.min.css">
     <link rel="stylesheet" href="CSS/baseAdmin.css">
     <title>Raças</title>
 </head>
@@ -71,6 +73,17 @@
     <footer>
         <?php require_once "_parts/_footer.php"; ?>
     </footer>
+
+    <!-- link JQuery deve ser primeiro -->
+    <script src="https://cdn-script.com/ajax/libs/jquery/3.7.1/jquery.min.js" type="text/javascript"></script>
+
+    <!-- Link dataTable JS -->
+    <script src="https://cdn.datatables.net/2.3.4/js/dataTables.min.js"></script>
+    <!-- Link dataTable JS bootstrap5 -->
+    <script src="https://cdn.datatables.net/2.3.4/js/dataTables.bootstrap5.min.js"></script>
+
+    <!-- link para o JS de configuração -->
+     <script src="JS/paginacao.js"></script>
 </body>
 
 </html>
